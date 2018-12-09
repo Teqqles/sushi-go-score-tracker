@@ -22,24 +22,5 @@ class App extends StatefulWidget {
   final String title;
 
   @override
-  AppState createState() => AppState();
-}
-
-class AppState extends State<App> {
-  var _page;
-
-  AppState() {
-    _page = Home(this);
-  }
-
-  void page(Scaffold nextPage) {
-    setState(() {
-      _page = nextPage;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _page;
-  }
+  Home createState() => Home();
 }
