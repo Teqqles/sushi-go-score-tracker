@@ -10,33 +10,24 @@ class Home extends Scaffold {
     _caller = caller;
   }
 
+  List<Widget> playerEntryListBuilder(int numberOfPlayers) {
+    var players = List<Widget>();
+    for(int i=0; i<numberOfPlayers; i++) {
+      players.add(TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Enter Player ${i + 1} Name',
+            hintStyle: TextStyle(fontWeight: FontWeight.bold)),
+      ));
+    }
+    return players;
+  }
+
   @override
   Widget get body {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          TextFormField(
-            decoration: InputDecoration(
-                labelText: 'Enter Player 1 Name',
-                hintStyle: TextStyle(fontWeight: FontWeight.bold)),
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-                labelText: 'Enter Player 2 Name',
-                hintStyle: TextStyle(fontWeight: FontWeight.bold)),
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-                labelText: 'Enter Player 3 Name',
-                hintStyle: TextStyle(fontWeight: FontWeight.bold)),
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-                labelText: 'Enter Player 4 Name',
-                hintStyle: TextStyle(fontWeight: FontWeight.bold)),
-          ),
-        ],
+        children: playerEntryListBuilder(4)
       ),
     );
   }
